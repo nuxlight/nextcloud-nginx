@@ -1,4 +1,4 @@
-FROM nextcloud:fpm-alpine:latest
+FROM nextcloud:fpm-alpine
 
 # Configure global container 
 ARG TIMEZONE=${TIMEZONE:-Europe/Paris}
