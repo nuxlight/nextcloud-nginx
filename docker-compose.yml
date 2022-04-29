@@ -2,11 +2,12 @@ version: '3'
 
 services:
   db:
-    image: mariadb:10.5
+    image: mariadb:latest
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
     restart: always
-    #volumes:
+    volumes:
       #- ./db:/var/lib/mysql
+      - ./conf/my.cnf:/etc/mysql/my.cnf
     environment:
       - MYSQL_ROOT_PASSWORD=toor
       - MYSQL_PASSWORD=next
@@ -14,7 +15,7 @@ services:
       - MYSQL_USER=next
 
   redis:
-    image: redis:4.0-alpine
+    image: redis:alpine
     environment:
       - "TZ=Europe/Paris"
     restart: always
